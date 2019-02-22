@@ -1,6 +1,6 @@
-# egg-view-orvue
+# egg-view-vuejs
 
-Forked from [egg-view-vue](https://github.com/eggjs/egg-view-vue). A plugin that integrates vue.js for egg.js. Used for server-side rendering.
+Forked from [egg-view-vue](https://github.com/eggjs/egg-view-vue). An egg.js plugin that integrates vue.js for server-side rendering.
 
 ## Install
 
@@ -36,11 +36,32 @@ see [config/config.default.js](config/config.default.js) for more detail.
 
 ## Example
 
-<!-- example here -->
+```js
+// To render from a serverBundle from a controller:
+class HomeController extends egg.Controller {
+  async home() {
+    const ctx = this.ctx;
+    // Render from a server bundle.
+    await ctx.render('vue-ssr-server-bundle.json', {
+      // render context.
+      data: {
+        name: 'vue render',
+        description: 'egg view plugin for swig',
+      },
+    });
+  }
 
-## Questions & Suggestions
-
-Please open an issue [here](https://github.com/eggjs/egg/issues).
+  async foo() {
+    const ctx = this.ctx;
+    // Render directly from tempalte string.
+    ctx.body = await ctx.renderString('<div>name: {{ name }}, desc: {{ desc }}</div>', {
+      name: 'Cool',
+      desc: 'Freaking cool',
+    });
+  }
+  ...
+}
+```
 
 ## License
 
