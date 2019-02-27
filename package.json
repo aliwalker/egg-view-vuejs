@@ -1,6 +1,6 @@
 {
   "name": "egg-view-vuejs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A plugin that integrates vue.js as render engine for egg.js",
   "eggPlugin": {
     "name": "vue",
