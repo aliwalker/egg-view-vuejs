@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "lru-cache": "^5.1.1",
+    "vue": "^2.6.6",
     "vue-server-renderer": "^2.6.6"
   },
   "devDependencies": {
@@ -30,8 +31,7 @@
     "egg-ci": "^1.11.0",
     "egg-mock": "^3.21.0",
     "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0",
-    "vue": "^2.6.6"
+    "eslint-config-egg": "^7.1.0"
   },
   "peerDependencies": {
     "vue": "^2.6.6"
@@ -40,6 +40,8 @@
     "node": ">=8.0.0"
   },
   "scripts": {
+    "commit": "git add . && git commit -m",
+    "pub:patch": "npm version patch --force && npm publish",
     "test": "egg-bin pkgfiles && npm run test-local",
     "lint-fix": "npm run lint -- --fix",
     "test-local": "egg-bin test",
